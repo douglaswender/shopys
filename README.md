@@ -1,6 +1,11 @@
 # shopys
 
-A new Flutter project.
+Projeto flutter com intuito de aprimorar o desenvolvimento utilizando Clean Architecture e TDD.
+
+Também será utilizado neste projeto:
+- Arquitetura Modular (flutter_modular);
+- Gerenciamento de Estado com Triple (flutter_triple);
+- Armazenamento com Firebase (https://firebase.flutter.dev/)
 
 ## Getting Started
 
