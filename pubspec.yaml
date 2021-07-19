@@ -26,9 +26,11 @@ dependencies:
   shared_preferences: ^2.0.6
   
 dev_dependencies:
+  build_runner: ^2.0.6
   flutter_modular_test: ^1.0.1
   flutter_test:
     sdk: flutter
+  mockito: ^5.0.11
   triple_test: ^0.0.6
 
 # For information on the generic Dart part of this file, see the
