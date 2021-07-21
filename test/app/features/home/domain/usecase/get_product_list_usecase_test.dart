@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:shopys/app/core/error/failures.dart';
 import 'package:shopys/app/core/usecase/usecase.dart';
 import 'package:shopys/app/features/home/domain/entities/product_entity.dart';
 import 'package:shopys/app/features/home/domain/repositories/product_repository.dart';
@@ -31,5 +32,17 @@ main() {
     final result = await usecase(lNoParams);
 
     expect(result, Right(tList));
+    expect(result.isRight(), true);
+  });
+
+  test('get product list of ProductEntity - error', () async {
+    final lNoParams = NoParams();
+
+    when(repository.getProductList()).thenAnswer((_) => Future.value(Left(ServerFailure())));
+
+    final result = await usecase(lNoParams);
+
+    expect(result, Left(ServerFailure()));
+    expect(result.isLeft(), true);
   });
 }
