@@ -4,22 +4,29 @@
     // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
-            "name": "Dart: Run all Tests",
+            "name": "shopys - dev",
+            "request": "launch",
             "type": "dart",
-            "request": "launch",
-            "program": "./test/"
-        },
-        {
-            "name": "shopys",
-            "request": "launch",
-            "type": "dart"
+            "preLaunchTask": "Start Flutter",
+            "console": "debugConsole",
+            // "args":[
+            //     "--dart-define=ENV=dev"
+            // ]
         },
         {
             "name": "shopys (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
+        },
+        {
+            "name": "Dart: Run all Tests",
+            "type": "dart",
+            "request": "launch",
+            "program": "./test/",
+            
         }
     ]
 }
