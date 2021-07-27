@@ -24,6 +24,7 @@ dependencies:
   equatable: ^2.0.3
   connectivity_plus: ^1.0.5  
   shared_preferences: ^2.0.6
+  dotenv: ^3.0.0
   
 dev_dependencies:
   build_runner: ^2.0.6
