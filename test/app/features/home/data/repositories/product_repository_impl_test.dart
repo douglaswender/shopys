@@ -30,6 +30,7 @@ main() {
 
     final result = await repository.getProductList();
 
+    expect(result, Right(tProductModelList));
     expect(result.isRight(), true);
   });
 
