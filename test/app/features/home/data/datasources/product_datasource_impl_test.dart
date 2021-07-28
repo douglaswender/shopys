@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:shopys/app/core/endpoints/shopys_endpoints.dart';
 import 'package:shopys/app/core/http_client/http_client.dart';
 import 'package:shopys/app/features/home/data/datasources/product_datasource.dart';
 import 'package:shopys/app/features/home/data/datasources/product_datasource_impl.dart';
@@ -17,19 +18,25 @@ main() {
     dataSource = ProductDataSource(client);
   });
 
-  final productMock = {
-    "description": "description",
-    "name": "name",
-    "photoUrl": "photoUrl",
-  };
-
-  final url = "https://api.test.com/products";
+  final productListMock = '''[
+    {
+      "description": "description",
+      "name": "name",
+      "photoUrl": "photoUrl"
+    },
+    {
+      "description": "description",
+      "name": "name",
+      "photoUrl": "photoUrl"
+    }
+  ]''';
 
   test('should call the get method with correct url', () async {
-    when(client.get('test')).thenAnswer((_) async => HttpResponse(data: productMock));
+    when(client.get(ShopysEndpoints.productList))
+        .thenAnswer((_) async => HttpResponse(data: productListMock));
 
-    final result = await dataSource.getProductList();
+    await dataSource.getProductList();
 
-    verify(() => client.get(url));
+    verify(client.get(ShopysEndpoints.productList)).called(1);
   });
 }

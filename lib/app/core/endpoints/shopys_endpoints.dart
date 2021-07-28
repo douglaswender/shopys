@@ -1,3 +1,3 @@
 class ShopysEndpoints {
-  static String get productList => "https://api.test.com/products";
+  static String get productList => "https://api.shopys.com/products";
 }
