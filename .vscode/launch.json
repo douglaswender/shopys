@@ -8,11 +8,11 @@
             "name": "shopys - dev",
             "request": "launch",
             "type": "dart",
-            "preLaunchTask": "Start Flutter",
-            "console": "debugConsole",
-            "args": [
-                "--dart-define=ENV=dev"
-            ]
+            //"preLaunchTask": "Start Flutter",
+            //"console": "debugConsole",
+            // "args": [
+            //     "--dart-define=ENV=dev"
+            // ]
         },
         {
             "name": "shopys (profile mode)",
