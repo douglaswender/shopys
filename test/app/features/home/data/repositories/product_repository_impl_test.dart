@@ -21,8 +21,18 @@ main() {
   });
 
   final tProductModelList = [
-    ProductModel(description: "description", name: "name", photoUrl: "photoUrl"),
-    ProductModel(description: "description", name: "name", photoUrl: "photoUrl"),
+    ProductModel(
+      description: "description",
+      name: "name",
+      photoUrl: "photoUrl",
+      price: 1000,
+    ),
+    ProductModel(
+      description: "description",
+      name: "name",
+      photoUrl: "photoUrl",
+      price: 5000,
+    ),
   ];
 
   test("should return a list of productModel when calls repository", () async {

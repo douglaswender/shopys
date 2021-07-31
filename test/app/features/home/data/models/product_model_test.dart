@@ -3,13 +3,18 @@ import 'package:shopys/app/features/home/data/models/product_model.dart';
 import 'package:shopys/app/features/home/domain/entities/product_entity.dart';
 
 main() {
-  final tProductModel =
-      ProductModel(description: "description", name: "name", photoUrl: "photoUrl");
+  final tProductModel = ProductModel(
+    description: "description",
+    name: "name",
+    photoUrl: "photoUrl",
+    price: 1000,
+  );
 
   final productMock = {
     "description": "description",
     "name": "name",
     "photoUrl": "photoUrl",
+    "price": 1000
   };
   test("should be a subclass of ProductEntity", () {
     expect(tProductModel, isA<ProductEntity>());

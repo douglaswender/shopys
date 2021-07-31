@@ -15,8 +15,8 @@ class ProductDataSource implements IProductDataSource {
 
   @override
   Future<List<ProductModel>> getProductList() async {
+    //! GET API:
     final response = await client.get(ShopysEndpoints.productList);
-
     if (response.statusCode == 200) {
       return (json.decode(response.data) as List).map((e) => ProductModel.fromJson(e)).toList();
     } else {

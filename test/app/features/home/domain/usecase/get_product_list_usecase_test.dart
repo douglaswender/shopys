@@ -23,9 +23,24 @@ main() {
   test("get product list of ProductEntity - success", () async {
     final lNoParams = NoParams();
     final tList = [
-      ProductEntity(name: 'name', description: 'description', photoUrl: 'photoUrl'),
-      ProductEntity(name: 'name', description: 'description', photoUrl: 'photoUrl'),
-      ProductEntity(name: 'name', description: 'description', photoUrl: 'photoUrl'),
+      ProductEntity(
+        name: 'name',
+        description: 'description',
+        photoUrl: 'photoUrl',
+        price: 1000,
+      ),
+      ProductEntity(
+        name: 'name',
+        description: 'description',
+        photoUrl: 'photoUrl',
+        price: 1000,
+      ),
+      ProductEntity(
+        name: 'name',
+        description: 'description',
+        photoUrl: 'photoUrl',
+        price: 1000,
+      ),
     ];
     when(repository.getProductList()).thenAnswer((_) => Future.value(Right(tList)));
 

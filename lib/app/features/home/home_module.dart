@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shopys/app/features/home/data/datasources/product_datasource_impl.dart';
+import 'package:shopys/app/features/home/data/datasources/product_datasource_local_impl.dart';
 import 'package:shopys/app/features/home/data/repositories/product_repository_impl.dart';
 import 'package:shopys/app/features/home/domain/usecases/get_product_list_usecase.dart';
 import 'package:shopys/app/features/home/presentation/home_page.dart';
@@ -17,6 +18,7 @@ class HomeModule extends Module {
 
     //! DataSources
     Bind((i) => ProductDataSource(i())),
+    Bind((i) => ProductLocalDataSource(i())),
 
     //! Repositories
     Bind((i) => ProductRepositoryImpl(i())),

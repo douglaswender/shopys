@@ -21,8 +21,18 @@ main() {
   });
 
   final productListMock = [
-    ProductEntity(name: 'name', description: 'description', photoUrl: 'photoUrl'),
-    ProductEntity(name: 'name', description: 'description', photoUrl: 'photoUrl'),
+    ProductEntity(
+      name: 'name',
+      description: 'description',
+      photoUrl: 'photoUrl',
+      price: 1000,
+    ),
+    ProductEntity(
+      name: 'name',
+      description: 'description',
+      photoUrl: 'photoUrl',
+      price: 1000,
+    ),
   ];
 
   final noParams = NoParams();

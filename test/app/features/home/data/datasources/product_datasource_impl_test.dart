@@ -24,12 +24,14 @@ main() {
     {
       "description": "description",
       "name": "name",
-      "photoUrl": "photoUrl"
+      "photoUrl": "photoUrl",
+      "price": 5000
     },
     {
       "description": "description",
       "name": "name",
-      "photoUrl": "photoUrl"
+      "photoUrl": "photoUrl",
+      "price": 5000
     }
   ]''';
 
