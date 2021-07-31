@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:shopys/app/features/home/data/datasources/product_datasource_impl.dart';
+import 'package:shopys/app/core/http_client/http_client_impl.dart';
 import 'package:shopys/app/features/home/data/datasources/product_datasource_local_impl.dart';
 import 'package:shopys/app/features/home/data/repositories/product_repository_impl.dart';
 import 'package:shopys/app/features/home/domain/usecases/get_product_list_usecase.dart';
@@ -17,13 +17,13 @@ class HomeModule extends Module {
     Bind((i) => GetProductListUsecase(i())),
 
     //! DataSources
-    Bind((i) => ProductDataSource(i())),
     Bind((i) => ProductLocalDataSource(i())),
 
     //! Repositories
     Bind((i) => ProductRepositoryImpl(i())),
 
     //! General
+    Bind((i) => HttpClientImpl()),
     Bind((i) => Dio()),
   ];
 
