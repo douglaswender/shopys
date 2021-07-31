@@ -1,19 +1,22 @@
 import 'package:flutter_triple/flutter_triple.dart';
+import 'package:shopys/app/core/usecase/usecase.dart';
+import 'package:shopys/app/features/home/domain/entities/product_entity.dart';
+import 'package:shopys/app/features/home/domain/usecases/get_product_list_usecase.dart';
 
-class HomeStore extends NotifierStore<Exception, int> {
-  HomeStore() : super(0);
+class HomeStore extends NotifierStore<Exception, List<ProductEntity>> {
+  final GetProductListUsecase getProductListUsecase;
 
-  Future<void> increment() async {
+  HomeStore(this.getProductListUsecase) : super([]);
+
+  getProductList() async {
     setLoading(true);
 
-    await Future.delayed(Duration(seconds: 5));
+    final result = await getProductListUsecase(NoParams());
 
-    int value = state + 1;
-    if (value < 5) {
-      update(value);
-    } else {
-      setError(Exception('Error: state not can be > 4'));
-    }
+    result.fold(
+      (l) => setError(l),
+      (r) => update(r),
+    );
 
     setLoading(false);
   }
