@@ -16,4 +16,11 @@ class EmptyList extends Failure {}
 
 class ErrorSearch extends Failure {}
 
+class ErrorIncrement extends Failure {
+  final String error;
+  ErrorIncrement({
+    required this.error,
+  });
+}
+
 class DatasourceResultNull extends Failure {}
