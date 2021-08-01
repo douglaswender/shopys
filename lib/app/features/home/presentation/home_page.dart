@@ -41,7 +41,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
         },
         onError: (context, error) => Center(
           child: Text(
-            'Too many clicks',
+            'Houve um erro ao tentar fazer a solicitação, tente novamente.',
             style: TextStyle(color: Colors.red),
           ),
         ),
