@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-
 import 'package:shopys/app/core/styles/sizes/app_sizes.dart';
 import 'package:shopys/app/core/utils/currency.dart';
 import 'package:shopys/app/features/home/domain/entities/product_entity.dart';
+import 'package:shopys/app/shared/cart/cart_store.dart';
 import 'package:shopys/app/features/home/presentation/widgets/product_list_item_store.dart';
 
 class ProductListItem extends StatefulWidget {
@@ -25,6 +25,7 @@ class _ProductListItemState extends State<ProductListItem> {
   final double radius = 16;
 
   final ProductListItemStore store = ProductListItemStore();
+  final CartStore cart = Modular.get<CartStore>();
 
   @override
   void initState() {
@@ -35,7 +36,7 @@ class _ProductListItemState extends State<ProductListItem> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(AppSizes.s8),
-      height: 300,
+      height: 350,
       child: Column(
         children: [
           Expanded(
@@ -120,6 +121,34 @@ class _ProductListItemState extends State<ProductListItem> {
                       )
                     ],
                   ),
+                  ScopedBuilder(
+                    store: store,
+                    onState: (_, quantity) => Expanded(
+                      child: Container(
+                        width: double.maxFinite,
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.orange[300],
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(radius),
+                              ),
+                            ),
+                            onPressed: store.state > 0
+                                ? () => cart.add(widget.product, store.state)
+                                : null,
+                            child: Text(
+                              "Adicionar ao carrinho",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            )),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: AppSizes.s8,
+                  )
                 ],
               ),
               decoration: BoxDecoration(
