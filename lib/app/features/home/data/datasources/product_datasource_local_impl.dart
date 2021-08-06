@@ -39,10 +39,12 @@ class ProductLocalDataSource implements IProductDataSource {
     ''';
 
     final response = HttpResponse(data: mockData, statusCode: 200);
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 1));
     if (response.statusCode == 200) {
       print(json.decode(response.data));
-      return (json.decode(response.data) as List).map((e) => ProductModel.fromJson(e)).toList();
+      return (json.decode(response.data) as List)
+          .map((e) => ProductModel.fromJson(e))
+          .toList();
     } else {
       throw ServerFailure();
     }

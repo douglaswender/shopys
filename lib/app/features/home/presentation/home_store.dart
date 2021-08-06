@@ -17,5 +17,6 @@ class HomeStore extends NotifierStore<Exception, List<ProductEntity>> {
       (l) => setError(l),
       (r) => update(r),
     );
+    setLoading(false);
   }
 }

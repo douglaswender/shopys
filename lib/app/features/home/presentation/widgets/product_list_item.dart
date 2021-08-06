@@ -22,8 +22,6 @@ class ProductListItem extends StatefulWidget {
 }
 
 class _ProductListItemState extends State<ProductListItem> {
-  final double radius = 16;
-
   final ProductListItemStore store = ProductListItemStore();
   final CartStore cart = Modular.get<CartStore>();
 
@@ -49,8 +47,8 @@ class _ProductListItemState extends State<ProductListItem> {
                     ),
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(radius),
-                      topRight: Radius.circular(radius),
+                      topLeft: Radius.circular(AppSizes.s16),
+                      topRight: Radius.circular(AppSizes.s16),
                     )),
               ),
             ),
@@ -130,7 +128,8 @@ class _ProductListItemState extends State<ProductListItem> {
                             style: ElevatedButton.styleFrom(
                               primary: Colors.orange[300],
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(radius),
+                                borderRadius:
+                                    BorderRadius.circular(AppSizes.s16),
                               ),
                             ),
                             onPressed: store.state > 0
@@ -154,8 +153,8 @@ class _ProductListItemState extends State<ProductListItem> {
               decoration: BoxDecoration(
                   color: Colors.white70,
                   borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(radius),
-                    bottomRight: Radius.circular(radius),
+                    bottomLeft: Radius.circular(AppSizes.s16),
+                    bottomRight: Radius.circular(AppSizes.s16),
                   )),
             ),
           ),

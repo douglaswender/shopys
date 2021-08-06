@@ -9,7 +9,6 @@ class CartStore extends NotifierStore<Exception, Map<ProductEntity, int>> {
 
   Future<void> add(ProductEntity product, int quantity) async {
     setLoading(true);
-    await Future.delayed(Duration(seconds: 1));
     try {
       cart.update(product, (value) {
         int newValue = cart[product]! + value;
@@ -22,7 +21,19 @@ class CartStore extends NotifierStore<Exception, Map<ProductEntity, int>> {
     } catch (e) {
       setError(ServerException());
     }
+    setLoading(false);
   }
 
-  Future<void> remove() async {}
+  Future<void> remove(ProductEntity product) async {
+    setLoading(true);
+    print('removing');
+    try {
+      cart.remove(product);
+      print(cart);
+      update(cart);
+    } catch (e) {
+      setError(ServerException());
+    }
+    setLoading(false);
+  }
 }
