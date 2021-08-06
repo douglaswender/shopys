@@ -33,106 +33,104 @@ class _ProductListItemState extends State<ProductListItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
       padding: EdgeInsets.all(AppSizes.s8),
-      child: Container(
-        height: MediaQuery.of(context).size.height * 0.35,
-        child: Column(
-          children: [
-            Expanded(
-              child: Hero(
-                tag: widget.product.photoUrl,
-                child: Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(widget.product.photoUrl),
-                      ),
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(radius),
-                        topRight: Radius.circular(radius),
-                      )),
-                ),
-              ),
-            ),
-            Expanded(
+      height: 300,
+      child: Column(
+        children: [
+          Expanded(
+            child: Hero(
+              tag: widget.product.photoUrl,
               child: Container(
-                padding: EdgeInsets.only(
-                  top: AppSizes.s16,
-                  left: AppSizes.s16,
-                  right: AppSizes.s16,
-                  bottom: AppSizes.s16,
-                ),
-                child: Column(
-                  children: [
-                    Text(
-                      widget.product.name,
-                      style: TextStyle(fontSize: 18),
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    SizedBox(
-                      height: AppSizes.s8,
-                    ),
-                    Text(
-                      widget.product.description,
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ScopedBuilder(
-                          store: store,
-                          onState: (_, int state) => Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              IconButton(
-                                onPressed: () => store.decrement(),
-                                icon: Icon(
-                                  Icons.remove,
-                                  size: 32,
-                                ),
-                              ),
-                              Container(
-                                child: Text(
-                                  store.state.toString(),
-                                  style: TextStyle(fontSize: 22),
-                                ),
-                              ),
-                              IconButton(
-                                onPressed: () => store.increment(),
-                                icon: Icon(
-                                  Icons.add,
-                                  size: 32,
-                                ),
-                              ),
-                            ],
-                          ),
-                          onError: (_, exception) => Text('Fora do estoque!'),
-                        ),
-                        Text(
-                          Currency.toCurrency(widget.product.price),
-                          style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.grey[700],
-                            fontWeight: FontWeight.bold,
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
                 decoration: BoxDecoration(
-                    color: Colors.white70,
+                    image: DecorationImage(
+                      image: NetworkImage(widget.product.photoUrl),
+                    ),
+                    color: Colors.white,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(radius),
-                      bottomRight: Radius.circular(radius),
+                      topLeft: Radius.circular(radius),
+                      topRight: Radius.circular(radius),
                     )),
               ),
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.only(
+                top: AppSizes.s16,
+                left: AppSizes.s16,
+                right: AppSizes.s16,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    widget.product.name,
+                    style: TextStyle(fontSize: 18),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(
+                    height: AppSizes.s8,
+                  ),
+                  Text(
+                    widget.product.description,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ScopedBuilder(
+                        store: store,
+                        onState: (_, int state) => Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              onPressed: () => store.decrement(),
+                              icon: Icon(
+                                Icons.remove,
+                                size: 32,
+                              ),
+                            ),
+                            Container(
+                              child: Text(
+                                store.state.toString(),
+                                style: TextStyle(fontSize: 22),
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: () => store.increment(),
+                              icon: Icon(
+                                Icons.add,
+                                size: 32,
+                              ),
+                            ),
+                          ],
+                        ),
+                        onError: (_, exception) => Text('Fora do estoque!'),
+                      ),
+                      Text(
+                        Currency.toCurrency(widget.product.price),
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Colors.grey[700],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+              decoration: BoxDecoration(
+                  color: Colors.white70,
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(radius),
+                    bottomRight: Radius.circular(radius),
+                  )),
+            ),
+          ),
+        ],
       ),
     );
   }

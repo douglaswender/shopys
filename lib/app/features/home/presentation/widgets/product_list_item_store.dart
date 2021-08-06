@@ -16,8 +16,9 @@ class ProductListItemStore extends NotifierStore<Exception, int> {
 
   decrement() {
     try {
-      update(state - 1);
-      print(state);
+      if (state != 0) {
+        update(state - 1);
+      }
     } catch (e) {
       setError(ErrorIncrement(error: e.toString()));
     }
