@@ -8,8 +8,9 @@ class CartPage extends StatefulWidget {
   @override
   CartPageState createState() => CartPageState();
 }
+
 class CartPageState extends State<CartPage> {
-  final CartStore store = Modular.get();
+  final CartStore store = Modular.get<CartStore>();
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +18,9 @@ class CartPageState extends State<CartPage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Column(
-        children: <Widget>[],
-      ),
+      body: Column(children: [
+        ...store.cart.entries.map((e) => Text(e.key.name)).toList()
+      ]),
     );
   }
 }

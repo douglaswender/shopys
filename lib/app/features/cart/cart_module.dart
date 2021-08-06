@@ -5,7 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 class CartModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => CartStore()),
+    Bind.lazySingleton((i) => CartStore(i())),
   ];
 
   @override

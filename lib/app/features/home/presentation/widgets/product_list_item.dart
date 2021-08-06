@@ -4,7 +4,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 import 'package:shopys/app/core/styles/sizes/app_sizes.dart';
 import 'package:shopys/app/core/utils/currency.dart';
 import 'package:shopys/app/features/home/domain/entities/product_entity.dart';
-import 'package:shopys/app/shared/cart/cart_store.dart';
+import 'package:shopys/app/features/cart/cart_store.dart';
 import 'package:shopys/app/features/home/presentation/widgets/product_list_item_store.dart';
 
 class ProductListItem extends StatefulWidget {

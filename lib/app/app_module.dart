@@ -1,7 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shopys/app/features/home/home_module.dart';
 import 'package:shopys/app/shared/bottom_navigation/bottom_navigation_store.dart';
-import 'package:shopys/app/shared/cart/cart_store.dart';
+import 'package:shopys/app/features/cart/cart_store.dart';
 
 class AppModule extends Module {
   @override
