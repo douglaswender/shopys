@@ -8,7 +8,7 @@ class HomeStore extends NotifierStore<Exception, List<ProductEntity>> {
 
   HomeStore(this.getProductListUsecase) : super([]);
 
-  getProductList() async {
+  Future<void> getProductList() async {
     setLoading(true);
 
     final result = await getProductListUsecase(NoParams());
@@ -17,7 +17,5 @@ class HomeStore extends NotifierStore<Exception, List<ProductEntity>> {
       (l) => setError(l),
       (r) => update(r),
     );
-
-    setLoading(false);
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:shopys/app/core/http_client/http_client_impl.dart';
 import 'package:shopys/app/features/home/data/datasources/product_datasource_local_impl.dart';
 import 'package:shopys/app/features/home/data/repositories/product_repository_impl.dart';
+import 'package:shopys/app/features/home/domain/entities/product_entity.dart';
 import 'package:shopys/app/features/home/domain/usecases/get_product_list_usecase.dart';
 import 'package:shopys/app/features/home/presentation/home_page.dart';
 import 'package:shopys/app/features/home/presentation/home_store.dart';
@@ -25,6 +26,7 @@ class HomeModule extends Module {
     //! General
     Bind((i) => HttpClientImpl()),
     Bind((i) => Dio()),
+    Bind((i) => Map<ProductEntity, int>()),
   ];
 
   @override

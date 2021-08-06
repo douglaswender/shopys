@@ -35,6 +35,7 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
             child: ListView.builder(
                 itemCount: list.length,
                 itemBuilder: (context, index) {
+                  print("index: $index");
                   return ProductListItem(product: list[index]);
                 }),
           );
