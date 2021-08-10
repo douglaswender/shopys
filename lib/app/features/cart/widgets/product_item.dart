@@ -63,7 +63,7 @@ class _ProductItemState extends State<ProductItem> {
                       widget.productCart.key.name,
                       style: TextStyle(fontSize: 16),
                       overflow: TextOverflow.visible,
-                      maxLines: 1,
+                      maxLines: 2,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
