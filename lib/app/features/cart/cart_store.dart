@@ -36,4 +36,20 @@ class CartStore extends NotifierStore<Exception, Map<ProductEntity, int>> {
     }
     setLoading(false);
   }
+
+  int total() {
+    print('calculating');
+    try {
+      int total = 0;
+      cart.forEach((key, value) {
+        total += key.price * value;
+        print(total);
+      });
+      print('total=$total');
+      return total;
+    } catch (e) {
+      setError(ServerException());
+      return 0;
+    }
+  }
 }

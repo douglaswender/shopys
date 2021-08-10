@@ -33,7 +33,7 @@ class _ProductItemState extends State<ProductItem> {
       store: cart,
       onState: (_, quantity) => Container(
         padding: EdgeInsets.all(AppSizes.s16),
-        height: 150,
+        height: 200,
         child: Row(
           children: [
             Expanded(
@@ -83,16 +83,16 @@ class _ProductItemState extends State<ProductItem> {
                             Text(
                               Currency.toCurrency(widget.productCart.key.price),
                             ),
+                            Text(
+                              Currency.toCurrency(widget.productCart.key.price *
+                                  widget.productCart.value),
+                              style: TextStyle(
+                                fontSize: 22,
+                                color: Colors.grey[700],
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ],
-                        ),
-                        Text(
-                          Currency.toCurrency(widget.productCart.key.price *
-                              widget.productCart.value),
-                          style: TextStyle(
-                            fontSize: 22,
-                            color: Colors.grey[700],
-                            fontWeight: FontWeight.bold,
-                          ),
                         ),
                       ],
                     )
